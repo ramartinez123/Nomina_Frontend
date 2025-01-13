@@ -2,78 +2,77 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './Categoria.css';
 
-const Convenio = () => {
-  const [convenios, setConvenios] = useState([]);
-  const [nuevoConvenio, setNuevoConvenio] = useState({ nombre: '', descripcion: '' });
+const Categoria = () => {
+  const [categorias, setCategorias] = useState([]);
+  const [nuevaCategoria, setNuevaCategoria] = useState({ nombre: '', descripcion: '' });
   const [error, setError] = useState(null);
-  const [editingConvenio, setEditingConvenio] = useState(null);
+  const [editingCategoria, setEditingCategoria] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
 
-  const apiUrl = 'http://localhost:8080/api/convenios';
+  const apiUrl = 'http://localhost:8080/api/categorias';
 
-  // Obtener convenios al cargar el componente
+  // Obtener categorías al cargar el componente
   useEffect(() => {
     axios.get(apiUrl)
       .then(response => {
         if (response.status === 204) {
-          setConvenios([]);
+          setCategorias([]);
         } else {
-          setConvenios(response.data);
+          setCategorias(response.data);
         }
       })
-      .catch(err => setError('Error al obtener los convenios.'));
+      .catch(err => setError('Error al obtener las categorías.'));
   }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (editingConvenio) {
-      // Actualizar convenio existente
-      axios.put(`${apiUrl}/${editingConvenio.idConvenio}`, nuevoConvenio)
+    if (editingCategoria) {
+      // Actualizar categoría existente
+      axios.put(`${apiUrl}/${editingCategoria.idCategoria}`, nuevaCategoria)
         .then(response => {
           if (response.status === 200) {
             axios.get(apiUrl)
-              .then(res => setConvenios(res.data))
-              .catch(err => setError('Error al obtener la lista de convenios.'));
-            setNuevoConvenio({ nombre: '', descripcion: '' });
-            setEditingConvenio(null);
+              .then(res => setCategorias(res.data))
+              .catch(err => setError('Error al obtener la lista de categorías.'));
+            setNuevaCategoria({ nombre: '', descripcion: '' });
+            setEditingCategoria(null);
           } else {
-            setError('Error al actualizar el convenio.');
+            setError('Error al actualizar la categoría.');
           }
         })
-        .catch(err => setError('Error al actualizar el convenio.'));
+        .catch(err => setError('Error al actualizar la categoría.'));
     } else {
-      // Agregar nuevo convenio
-      axios.post(apiUrl, nuevoConvenio)
+      // Agregar nueva categoría
+      axios.post(apiUrl, nuevaCategoria)
         .then(response => {
           if (response.status === 201) {
-            setConvenios([...convenios, response.data]);
-            setNuevoConvenio({ nombre: '', descripcion: '' });
+            setCategorias([...categorias, response.data]);
+            setNuevaCategoria({ nombre: '', descripcion: '' });
           } else {
-            setError('Error al agregar el convenio.');
+            setError('Error al agregar la categoría.');
           }
         })
-        .catch(err => setError('Error al agregar el convenio.'));
+        .catch(err => setError('Error al agregar la categoría.'));
     }
   };
 
-  const handleEdit = (convenio) => {
-    setNuevoConvenio({ nombre: convenio.nombre, descripcion: convenio.descripcion });
-    setEditingConvenio(convenio);
+  const handleEdit = (categoria) => {
+    setNuevaCategoria({ nombre: categoria.nombre, descripcion: categoria.descripcion });
+    setEditingCategoria(categoria);
   };
 
-  const filteredConvenios = convenios.filter(convenio =>
-    convenio.nombre.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredCategorias = categorias.filter(categoria =>
+    categoria.nombre.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   return (
     <div className="container mt-4">
       {error && <div className="alert alert-danger">{error}</div>}
 
-
       {/* Formulario para agregar/editar */}
       <div className="mt-4">
-        <h2>{editingConvenio ? 'Editar Convenio' : 'Agregar Convenio'}</h2>
+        <h2>{editingCategoria ? 'Editar Categoría' : 'Agregar Categoría'}</h2>
         <form onSubmit={handleSubmit} className="mb-4">
           <div className="row g-2">
             <div className="col-12 col-md-5">
@@ -81,8 +80,8 @@ const Convenio = () => {
                 type="text"
                 className="form-control form-control-sm"
                 placeholder="Nombre"
-                value={nuevoConvenio.nombre}
-                onChange={(e) => setNuevoConvenio({ ...nuevoConvenio, nombre: e.target.value })}
+                value={nuevaCategoria.nombre}
+                onChange={(e) => setNuevaCategoria({ ...nuevaCategoria, nombre: e.target.value })}
                 required
               />
             </div>
@@ -91,14 +90,14 @@ const Convenio = () => {
                 type="text"
                 className="form-control form-control-sm"
                 placeholder="Descripción"
-                value={nuevoConvenio.descripcion}
-                onChange={(e) => setNuevoConvenio({ ...nuevoConvenio, descripcion: e.target.value })}
+                value={nuevaCategoria.descripcion}
+                onChange={(e) => setNuevaCategoria({ ...nuevaCategoria, descripcion: e.target.value })}
                 required
               />
             </div>
             <div className="col-12 col-md-2">
               <button type="submit" className="btn btn-primary btn-sm w-100">
-                {editingConvenio ? 'Actualizar' : 'Agregar'}
+                {editingCategoria ? 'Actualizar' : 'Agregar'}
               </button>
             </div>
           </div>
@@ -116,9 +115,9 @@ const Convenio = () => {
         />
       </div>
 
-      {/* Lista de convenios */}
-      <h2>Lista de Convenios</h2>
-      {convenios.length > 0 ? (
+      {/* Lista de categorías */}
+      <h2>Lista de Categorías</h2>
+      {categorias.length > 0 ? (
         <div className="table-responsive">
           <table className="table table-striped table-sm">
             <thead>
@@ -130,15 +129,15 @@ const Convenio = () => {
               </tr>
             </thead>
             <tbody>
-              {filteredConvenios.map(convenio => (
-                <tr key={convenio.idConvenio}>
-                  <td>{convenio.idConvenio}</td>
-                  <td>{convenio.nombre}</td>
-                  <td>{convenio.descripcion}</td>
+              {filteredCategorias.map(categoria => (
+                <tr key={categoria.idCategoria}>
+                  <td>{categoria.idCategoria}</td>
+                  <td>{categoria.nombre}</td>
+                  <td>{categoria.descripcion}</td>
                   <td>
                     <button
                       className="btn btn-warning btn-sm me-2"
-                      onClick={() => handleEdit(convenio)}
+                      onClick={() => handleEdit(categoria)}
                     >
                       Editar
                     </button>
@@ -149,10 +148,10 @@ const Convenio = () => {
           </table>
         </div>
       ) : (
-        <p>No hay convenios disponibles.</p>
+        <p>No hay categorías disponibles.</p>
       )}
     </div>
   );
 };
 
-export default Convenio;
+export default Categoria;
