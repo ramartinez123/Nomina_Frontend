@@ -119,40 +119,40 @@ const Convenio = () => {
       <h2>Lista de Convenios</h2>
       {convenios.length > 0 ? (
 
-   <div className="table-responsive">
-     <table className="table table-striped table-sm">
-       <thead className="table-dark">
-         <tr>
-           <th>ID</th>
-           <th>Nombre</th>
-           <th>Descripción</th>
-           <th>Acciones</th>
-         </tr>
-       </thead>
-       <tbody>
-         {filteredConvenios.map(convenio => (
-           <tr key={convenio.idConvenio}>
-             <td>{convenio.idConvenio}</td>
-             <td>{convenio.nombre}</td>
-             <td>{convenio.descripcion}</td>
-             <td>
-               <button
-                 className="btn btn-warning btn-sm me-2"
-                 onClick={() => handleEdit(convenio)}
-               >
-                 Editar
-               </button>
-             </td>
-           </tr>
-         ))}
-       </tbody>
-     </table>
-   
- </div>
-) : (
- <p>No hay convenios disponibles.</p>
-)}
-</div>
+        <div className="table-responsive">
+          <table className="table table-striped table-sm">
+            <thead className="table-dark">
+              <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              {filteredConvenios.map(convenio => (
+                <tr key={convenio.idConvenio}>
+                  <td>{convenio.idConvenio}</td>
+                  <td>{convenio.nombre}</td>
+                  <td>{convenio.descripcion}</td>
+                  <td>
+                    <button
+                      className="btn btn-warning btn-sm me-2"
+                      onClick={() => handleEdit(convenio)}
+                    >
+                      Editar
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+
+        </div>
+      ) : (
+        <p>No hay convenios disponibles.</p>
+      )}
+    </div>
   );
 };
 

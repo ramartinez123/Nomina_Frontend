@@ -79,7 +79,7 @@ const LiquidacionResultado = () => {
 
       {liquidacionData && liquidacionData.detalles ? (
         liquidacionData.detalles.map((empleadoDetalle, index) => {
-          const conceptosSin491 = empleadoDetalle.conceptos.filter(c => 
+          const conceptosSin491 = empleadoDetalle.conceptos.filter(c =>
             c.conceptoId !== 491 &&
             c.conceptoId !== 91 &&
             c.conceptoId !== 191 &&
@@ -101,7 +101,7 @@ const LiquidacionResultado = () => {
 
           return (
             <div key={index} className="mb-4">
-            <h3 className="header-right">Empleado: {empleadoDetalle.empleado.nombre}</h3>
+              <h3 className="header-right">Empleado: {empleadoDetalle.empleado.nombre}</h3>
               <div className="table-responsive" style={{ maxWidth: '70%', margin: '0 auto' }}>
                 <table className="table table-sm table-bordered table-striped mb-4">
                   <thead>

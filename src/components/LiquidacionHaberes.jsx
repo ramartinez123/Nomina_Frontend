@@ -30,18 +30,16 @@ const RealizarLiquidacion = () => {
   };
 
   return (
-<div>
-  <button 
-    onClick={realizarLiquidacion} 
-    className="btn btn-primary mt-4" // Clase Bootstrap para estilo
-    disabled={cargando}
-  >
-    {cargando ? 'Procesando...' : 'Procesar'}
-  </button>
-  {mensaje && <p>{mensaje}</p>}
-</div>
-
-
+    <div>
+      <button
+        onClick={realizarLiquidacion}
+        className="btn btn-primary mt-4" // Clase Bootstrap para estilo
+        disabled={cargando}
+      >
+        {cargando ? 'Procesando...' : 'Procesar'}
+      </button>
+      {mensaje && <p>{mensaje}</p>}
+    </div>
   );
 };
 

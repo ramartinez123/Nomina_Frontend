@@ -105,10 +105,8 @@ const Departamento = () => {
           </div>
         </form>
       </div>
-
-
-            {/* Barra de búsqueda */}
-            <div className="mb-4">
+      {/* Barra de búsqueda */}
+      <div className="mb-4">
         <input
           type="text"
           className="form-control form-control-sm"
@@ -123,7 +121,7 @@ const Departamento = () => {
       {departamentos.length > 0 ? (
         <div className="table-responsive">
           <table className="table table-striped table-sm">
-            <thead className="table-dark">
+            <thead >
               <tr>
                 <th>ID</th>
                 <th>Nombre</th>

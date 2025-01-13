@@ -1,78 +1,6 @@
-/*import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-
-const EMPLEADO_BASE_REST_API_URL = 'http://localhost:8080/api/empleados';
-
-export default function Empleado() {
-  const [empls, setEmpls] = useState([]); // Inicializar como arreglo vacío
-  const [error, setError] = useState(null); // Manejo de errores opcional
-
-  useEffect(() => {
-    fetchEmpleados();
-  }, []);
-
-  const fetchEmpleados = async () => {
-    try {
-      const response = await axios.get(EMPLEADO_BASE_REST_API_URL);
-      setEmpls(response.data); // Guardar el arreglo de empleados
-    } catch (error) {
-      console.error('Error al obtener empleados:', error);
-      setError('No se pudo obtener la lista de empleados.');
-    }
-  };
-
-  const deleteEmpleado = async (id) => {
-    try {
-      await axios.delete(`${EMPLEADO_BASE_REST_API_URL}/${id}`);
-      setEmpls(empls.filter(empleado => empleado.id !== id)); // Eliminar localmente el empleado
-    } catch (error) {
-      console.error('Error al eliminar empleado:', error);
-      setError('No se pudo eliminar el empleado.');
-    }
-  };
-
-  if (error) return <p>{error}</p>;
-  if (empls.length === 0) return <p>No hay empleados disponibles.</p>;
-
-  return (
-    <div className="container">
-      <h2 className="text-center">Lista de Empleados</h2>
-      <table className="table table-bordered table-striped">
-        <thead>
-          <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Apellido</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Departamento</th>
-            <th scope="col">Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          {empls.map((empleado) => (
-            <tr key={empleado.id}>
-              <td>{empleado.id}</td>
-              <td>{empleado.apellido}</td>
-              <td>{empleado.nombre}</td>
-              <td>{empleado.idDepartamento}</td>
-              <td>
-                <button
-                  className="btn btn-danger"
-                  onClick={() => deleteEmpleado(empleado.id)}
-                >
-                  Eliminar
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
-}*/
-
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-    
+
 const EMPLEADO_BASE_REST_API_URL = 'http://localhost:8080/api/empleados';
 const DEPARTAMENTO_API_URL = 'http://localhost:8080/api/departamentos';
 const CONVENIO_API_URL = 'http://localhost:8080/api/convenios';
@@ -90,7 +18,7 @@ const TIPO_CONTRATO_API_URL = 'http://localhost:8080/api/enumes/contrato';
 export default function EmpleadoForm() {
   const [empleado, setEmpleado] = useState({
     nombre: '',
-    apellido: '', 
+    apellido: '',
     dni: '',
     cuil: '',
     email: '',
@@ -132,7 +60,6 @@ export default function EmpleadoForm() {
   const [mensaje, setMensaje] = useState('');
   const [error, setError] = useState(null);
 
-
   // Cargar listas
   useEffect(() => {
     fetchData(DEPARTAMENTO_API_URL, setDepartamentos);
@@ -163,65 +90,44 @@ export default function EmpleadoForm() {
     setEmpleado({ ...empleado, [name]: value });
   };
 
- /* const validarFormulario = () => {
-    const nuevosErrores = {};
-    if (!empleado.nombre.trim()) nuevosErrores.nombre = 'El nombre es obligatorio.';
-    if (!empleado.apellido.trim()) nuevosErrores.apellido = 'El apellido es obligatorio.';
-    if (!empleado.cuil.trim()) nuevosErrores.cuil = 'El CUIL es obligatorio.';
-    if (!empleado.email.trim()) nuevosErrores.email = 'El email es obligatorio.';
-    if (!empleado.idDepartamento) nuevosErrores.idDepartamento = 'El departamento es obligatorio.';
-    if (!empleado.idConvenio) nuevosErrores.idConvenio = 'El convenio es obligatorio.';
-    if (!empleado.idCategoria) nuevosErrores.idCategoria = 'La categoría es obligatoria.';
-    if (!empleado.idProvincia) nuevosErrores.idProvincia = 'La provincia es obligatoria.';
-    if (!empleado.idPuesto) nuevosErrores.idPuesto = 'El puesto es obligatorio.';
-    if (!empleado.idBanco) nuevosErrores.idBanco = 'El banco es obligatorio.';
-    if (!empleado.idObraSocial) nuevosErrores.idObraSocial = 'La obra social es obligatoria.';
-    if (!empleado.idEstadoCivil) nuevosErrores.idEstadoCivil = 'El estado Civil es obligatorio.';
-    if (!empleado.idGenero) nuevosErrores.idGenero = 'El genero es obligatorio.';
-    setErrores(nuevosErrores);
-    return Object.keys(nuevosErrores).length === 0;
-  };*/
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-    //if (!validarFormulario()) return;
 
-      
-    console.log(empleado); // Ver los datos del empleado antes de enviarlos
+    console.log(empleado);
 
     try {
       await axios.post(EMPLEADO_BASE_REST_API_URL, empleado);
       setMensaje('Empleado creado exitosamente.');
       setEmpleado({
         nombre: '',
-          apellido: '',
-          dni: '',
-          cuil: '',
-          email: '',
-          telefono: '',
-          direccion: '',
-          ciudad: '',
-          idProvincia: '',
-          idDepartamento: '',
-          idConvenio: '',
-          idCategoria: '',
-          idPuesto: '',
-          idBanco: '',
-          idObraSocial: '',
-          estadoEmpleado: '',
-          estadoCivil: '',
-          genero: '',
-          tipoContrato: '',
-          tipoCuentaBancaria: '',
-          fechaNacimiento: '',
-          fechaInicio: '',
-          fechaFin: '',
-          diasVacacionesPactadas: 0,
-          cbu: '',
-          nacionalidad: '',
+        apellido: '',
+        dni: '',
+        cuil: '',
+        email: '',
+        telefono: '',
+        direccion: '',
+        ciudad: '',
+        idProvincia: '',
+        idDepartamento: '',
+        idConvenio: '',
+        idCategoria: '',
+        idPuesto: '',
+        idBanco: '',
+        idObraSocial: '',
+        estadoEmpleado: '',
+        estadoCivil: '',
+        genero: '',
+        tipoContrato: '',
+        tipoCuentaBancaria: '',
+        fechaNacimiento: '',
+        fechaInicio: '',
+        fechaFin: '',
+        diasVacacionesPactadas: 0,
+        cbu: '',
+        nacionalidad: '',
       });
     } catch (error) {
-      console.error('Error al crear empleado:', error.response ? error.response.data : error.message);  
+      console.error('Error al crear empleado:', error.response ? error.response.data : error.message);
       setError('No se pudo crear el empleado.');
     }
   };
@@ -303,7 +209,7 @@ export default function EmpleadoForm() {
 
         <div className="row mt-3">
           <div className="col-md-3">
-             <input
+            <input
               type="email"
               className={`form-control ${errores.email ? 'is-invalid' : ''}`}
               name="email"
@@ -411,7 +317,7 @@ export default function EmpleadoForm() {
             />
           </div>
 
-          
+
           <div className="col-md-3">
             <input
               type="text"
@@ -568,21 +474,21 @@ export default function EmpleadoForm() {
         </div>
 
         <div className="row mt-4">
-            <div className="col-md-3">
-              <select
-                className={`form-control ${errores.tipoContrato ? 'is-invalid' : ''}`}
-                name="tipoContrato"
-                value={empleado.tipoContrato}
-                onChange={handleChange}
-              >
-                <option value="">Tipo Contrato </option>
-                {tipoContratos.map((contra) => (
-                  <option key={contra} value={contra}>
-                    {contra}
-                  </option>
-                ))}
-              </select>
-            </div>
+          <div className="col-md-3">
+            <select
+              className={`form-control ${errores.tipoContrato ? 'is-invalid' : ''}`}
+              name="tipoContrato"
+              value={empleado.tipoContrato}
+              onChange={handleChange}
+            >
+              <option value="">Tipo Contrato </option>
+              {tipoContratos.map((contra) => (
+                <option key={contra} value={contra}>
+                  {contra}
+                </option>
+              ))}
+            </select>
+          </div>
 
 
           <div className="col-md-3">
@@ -602,7 +508,7 @@ export default function EmpleadoForm() {
               className={`form-control ${errores.diasVacacionesPactadas ? 'is-invalid' : ''}`}
               name="diasVacacionesPactadas"
               placeholder="Vacaciones"
-              value={empleado.diasVacacionesPactadas || ''} 
+              value={empleado.diasVacacionesPactadas || ''}
               onChange={handleChange}
               onFocus={(e) => (e.target.type = 'number')} // Cambia a selector de fecha al enfocar
               onBlur={(e) => (e.target.type = 'text')} // Vuelve a texto al desenfocar
@@ -627,8 +533,6 @@ export default function EmpleadoForm() {
             )}
           </div>
 
-
-          {/* Continúa agregando los demás campos aquí (Convenio, Categoría, Puesto, Banco, Obra Social, Estado Civil, etc.) */}
         </div>
 
         {/* Botón de envío */}

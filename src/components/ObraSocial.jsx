@@ -7,7 +7,6 @@ const ObraSocial = () => {
   const [error, setError] = useState(null);
   const [editingObraSocial, setEditingObraSocial] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
-
   const apiUrl = 'http://localhost:8080/api/obras-sociales';
 
   useEffect(() => {
@@ -27,28 +26,19 @@ const ObraSocial = () => {
 
     if (editingObraSocial) {
       axios.put(`${apiUrl}/${editingObraSocial.idObraSocial}`, nuevaObraSocial)
-      .then(response => {
-        if (response.status === 200) {
-          /*axios.get(apiUrl)
-            .then(res => {
-              if (res.status === 200) {
-                setObrasSociales(res.data);
-              } else {
-                setError('Error al obtener la lista actualizada de obras sociales.');
-              }
-            })*/
-          setObrasSociales(obrasSociales.map(obraSocial =>
-            obraSocial.idObraSocial === editingObraSocial.idObraSocial ? { ...obraSocial, ...nuevaObraSocial } : obraSocial
-              ));
-           // .catch(err => setError('Error al obtener la lista de obras sociales.'));
-          setNuevaObraSocial({ nombre: '', descripcion: '' });
-          setEditingObraSocial(null);
-        } else {
-          setError('Error al actualizar la obra social.');
-        }
-      })
-      .catch(err => setError('Error al actualizar la Obra Social.'));
-  }else {
+        .then(response => {
+          if (response.status === 200) {
+            setObrasSociales(obrasSociales.map(obraSocial =>
+              obraSocial.idObraSocial === editingObraSocial.idObraSocial ? { ...obraSocial, ...nuevaObraSocial } : obraSocial
+            ));
+            setNuevaObraSocial({ nombre: '', descripcion: '' });
+            setEditingObraSocial(null);
+          } else {
+            setError('Error al actualizar la obra social.');
+          }
+        })
+        .catch(err => setError('Error al actualizar la Obra Social.'));
+    } else {
       axios.post(apiUrl, nuevaObraSocial)
         .then(response => {
           if (response.status === 201) {

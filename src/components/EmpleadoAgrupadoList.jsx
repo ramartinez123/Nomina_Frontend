@@ -12,7 +12,7 @@ const EmpleadoAgrupadoList = () => {
       try {
         setLoading(true);
         const response = await fetch(`http://localhost:8080/api/empleados/agrupados-por-banco?mes=${mes}&anio=${anio}`);
-        
+
         if (!response.ok) {
           throw new Error('Error al obtener los datos');
         }
@@ -56,9 +56,9 @@ const EmpleadoAgrupadoList = () => {
       <div className="row mb-4">
         <div className="col-md-2">
           <label>Mes</label>
-          <select 
-            className="form-control" 
-            value={mes} 
+          <select
+            className="form-control"
+            value={mes}
             onChange={(e) => setMes(parseInt(e.target.value))}
           >
             {[...Array(12)].map((_, index) => (
@@ -70,9 +70,9 @@ const EmpleadoAgrupadoList = () => {
         </div>
         <div className="col-md-2">
           <label>Año</label>
-          <select 
-            className="form-control" 
-            value={anio} 
+          <select
+            className="form-control"
+            value={anio}
             onChange={(e) => setAnio(parseInt(e.target.value))}
           >
             {[2020, 2021, 2022, 2023, 2024, 2025].map((year) => (

@@ -30,8 +30,6 @@ export default function EmpleadoLista() {
   };
 
   // Actualizar un empleado
-
-  
   const updateEmpleado = async (empleado) => {
     try {
       await axios.put(`${EMPLEADO_BASE_REST_API_URL2}/${empleado.id}`, empleado);
@@ -78,294 +76,294 @@ export default function EmpleadoLista() {
         <div>
           <h3>Editar Empleado</h3>
           <form onSubmit={handleSave}>
-  <div className="row mt-3">
-    <div className="col-md-4">
-      <input
-        type="text"
-        className="form-control"
-        name="nombre"
-        placeholder="Nombre"
-        value={empleadoEditando.nombre || ''}
-        onChange={handleChangeEdit}
-      />
-    </div>
-    <div className="col-md-4">
-      <input
-        type="text"
-        className="form-control"
-        name="apellido"
-        placeholder="Apellido"
-        value={empleadoEditando.apellido || ''}
-        onChange={handleChangeEdit}
-      />
-    </div>
-    <div className="col-md-4">
-      <input
-        type="text"
-        className="form-control"
-        name="dni"
-        placeholder="DNI"
-        value={empleadoEditando.dni || ''}
-        onChange={handleChangeEdit}
-      />
-    </div>
-  </div>
+            <div className="row mt-3">
+              <div className="col-md-4">
+                <input
+                  type="text"
+                  className="form-control"
+                  name="nombre"
+                  placeholder="Nombre"
+                  value={empleadoEditando.nombre || ''}
+                  onChange={handleChangeEdit}
+                />
+              </div>
+              <div className="col-md-4">
+                <input
+                  type="text"
+                  className="form-control"
+                  name="apellido"
+                  placeholder="Apellido"
+                  value={empleadoEditando.apellido || ''}
+                  onChange={handleChangeEdit}
+                />
+              </div>
+              <div className="col-md-4">
+                <input
+                  type="text"
+                  className="form-control"
+                  name="dni"
+                  placeholder="DNI"
+                  value={empleadoEditando.dni || ''}
+                  onChange={handleChangeEdit}
+                />
+              </div>
+            </div>
 
-  <div className="row mt-3">
-    <div className="col-md-4">
-      <input
-        type="date"
-        className="form-control"
-        name="fechaNacimiento"
-        value={empleadoEditando.fechaNacimiento || ''}
-        onChange={handleChangeEdit}
-      />
-    </div>
-    <div className="col-md-4">
-      <input
-        type="email"
-        className="form-control"
-        name="email"
-        placeholder="Email"
-        value={empleadoEditando.email || ''}
-        onChange={handleChangeEdit}
-      />
-    </div>
-    <div className="col-md-4">
-      <input
-        type="text"
-        className="form-control"
-        name="telefono"
-        placeholder="Teléfono"
-        value={empleadoEditando.telefono || ''}
-        onChange={handleChangeEdit}
-      />
-    </div>
-  </div>
+            <div className="row mt-3">
+              <div className="col-md-4">
+                <input
+                  type="date"
+                  className="form-control"
+                  name="fechaNacimiento"
+                  value={empleadoEditando.fechaNacimiento || ''}
+                  onChange={handleChangeEdit}
+                />
+              </div>
+              <div className="col-md-4">
+                <input
+                  type="email"
+                  className="form-control"
+                  name="email"
+                  placeholder="Email"
+                  value={empleadoEditando.email || ''}
+                  onChange={handleChangeEdit}
+                />
+              </div>
+              <div className="col-md-4">
+                <input
+                  type="text"
+                  className="form-control"
+                  name="telefono"
+                  placeholder="Teléfono"
+                  value={empleadoEditando.telefono || ''}
+                  onChange={handleChangeEdit}
+                />
+              </div>
+            </div>
 
-  <div className="row mt-3">
-    <div className="col-md-4">
-      <input
-        type="text"
-        className="form-control"
-        name="direccion"
-        placeholder="Dirección"
-        value={empleadoEditando.direccion || ''}
-        onChange={handleChangeEdit}
-      />
-    </div>
-    <div className="col-md-4">
-      <input
-        type="text"
-        className="form-control"
-        name="ciudad"
-        placeholder="Ciudad"
-        value={empleadoEditando.ciudad || ''}
-        onChange={handleChangeEdit}
-      />
-    </div>
-    <div className="col-md-4">
-      <input
-        type="text"
-        className="form-control"
-        name="provincia"
-        placeholder="Provincia"
-        value={empleadoEditando.idProvincia || ''}
-        onChange={handleChangeEdit}
-      />
-    </div>
-  </div>
+            <div className="row mt-3">
+              <div className="col-md-4">
+                <input
+                  type="text"
+                  className="form-control"
+                  name="direccion"
+                  placeholder="Dirección"
+                  value={empleadoEditando.direccion || ''}
+                  onChange={handleChangeEdit}
+                />
+              </div>
+              <div className="col-md-4">
+                <input
+                  type="text"
+                  className="form-control"
+                  name="ciudad"
+                  placeholder="Ciudad"
+                  value={empleadoEditando.ciudad || ''}
+                  onChange={handleChangeEdit}
+                />
+              </div>
+              <div className="col-md-4">
+                <input
+                  type="text"
+                  className="form-control"
+                  name="provincia"
+                  placeholder="Provincia"
+                  value={empleadoEditando.idProvincia || ''}
+                  onChange={handleChangeEdit}
+                />
+              </div>
+            </div>
 
-  <div className="row mt-3">
-    <div className="col-md-4">
-      <input
-        type="text"
-        className="form-control"
-        name="departamento"
-        placeholder="Departamento"
-        value={empleadoEditando.departamento || ''}
-        onChange={handleChangeEdit}
-      />
-    </div>
-    <div className="col-md-4">
-      <input
-        type="text"
-        className="form-control"
-        name="convenio"
-        placeholder="Convenio"
-        value={empleadoEditando.convenio || ''}
-        onChange={handleChangeEdit}
-      />
-    </div>
-    <div className="col-md-4">
-      <input
-        type="text"
-        className="form-control"
-        name="categoria"
-        placeholder="Categoría"
-        value={empleadoEditando.categoria || ''}
-        onChange={handleChangeEdit}
-      />
-    </div>
-  </div>
+            <div className="row mt-3">
+              <div className="col-md-4">
+                <input
+                  type="text"
+                  className="form-control"
+                  name="departamento"
+                  placeholder="Departamento"
+                  value={empleadoEditando.departamento || ''}
+                  onChange={handleChangeEdit}
+                />
+              </div>
+              <div className="col-md-4">
+                <input
+                  type="text"
+                  className="form-control"
+                  name="convenio"
+                  placeholder="Convenio"
+                  value={empleadoEditando.convenio || ''}
+                  onChange={handleChangeEdit}
+                />
+              </div>
+              <div className="col-md-4">
+                <input
+                  type="text"
+                  className="form-control"
+                  name="categoria"
+                  placeholder="Categoría"
+                  value={empleadoEditando.categoria || ''}
+                  onChange={handleChangeEdit}
+                />
+              </div>
+            </div>
 
-  <div className="row mt-3">
-    <div className="col-md-4">
-      <input
-        type="text"
-        className="form-control"
-        name="puesto"
-        placeholder="Puesto"
-        value={empleadoEditando.idPuesto || ''}
-        onChange={handleChangeEdit}
-      />
-    </div>
-    <div className="col-md-4">
-      <input
-        type="date"
-        className="form-control"
-        name="fechaInicio"
-        value={empleadoEditando.fechaInicio || ''}
-        onChange={handleChangeEdit}
-      />
-    </div>
-    <div className="col-md-4">
-      <input
-        type="date"
-        className="form-control"
-        name="fechaFin"
-        value={empleadoEditando.fechaFin || ''}
-        onChange={handleChangeEdit}
-      />
-    </div>
-  </div>
+            <div className="row mt-3">
+              <div className="col-md-4">
+                <input
+                  type="text"
+                  className="form-control"
+                  name="puesto"
+                  placeholder="Puesto"
+                  value={empleadoEditando.idPuesto || ''}
+                  onChange={handleChangeEdit}
+                />
+              </div>
+              <div className="col-md-4">
+                <input
+                  type="date"
+                  className="form-control"
+                  name="fechaInicio"
+                  value={empleadoEditando.fechaInicio || ''}
+                  onChange={handleChangeEdit}
+                />
+              </div>
+              <div className="col-md-4">
+                <input
+                  type="date"
+                  className="form-control"
+                  name="fechaFin"
+                  value={empleadoEditando.fechaFin || ''}
+                  onChange={handleChangeEdit}
+                />
+              </div>
+            </div>
 
-  <div className="row mt-3">
-    <div className="col-md-4">
-      <input
-        type="number"
-        className="form-control"
-        name="diasVacacionesPactadas"
-        placeholder="Días de Vacaciones Pactadas"
-        value={empleadoEditando.diasVacacionesPactadas || ''}
-        onChange={handleChangeEdit}
-      />
-    </div>
-    <div className="col-md-4">
-      <input
-        type="text"
-        className="form-control"
-        name="estadoEmpleado"
-        placeholder="Estado Empleado"
-        value={empleadoEditando.estadoEmpleado || ''}
-        onChange={handleChangeEdit}
-      />
-    </div>
-    <div className="col-md-4">
-      <input
-        type="text"
-        className="form-control"
-        name="nacionalidad"
-        placeholder="Nacionalidad"
-        value={empleadoEditando.nacionalidad || ''}
-        onChange={handleChangeEdit}
-      />
-    </div>
-  </div>
+            <div className="row mt-3">
+              <div className="col-md-4">
+                <input
+                  type="number"
+                  className="form-control"
+                  name="diasVacacionesPactadas"
+                  placeholder="Días de Vacaciones Pactadas"
+                  value={empleadoEditando.diasVacacionesPactadas || ''}
+                  onChange={handleChangeEdit}
+                />
+              </div>
+              <div className="col-md-4">
+                <input
+                  type="text"
+                  className="form-control"
+                  name="estadoEmpleado"
+                  placeholder="Estado Empleado"
+                  value={empleadoEditando.estadoEmpleado || ''}
+                  onChange={handleChangeEdit}
+                />
+              </div>
+              <div className="col-md-4">
+                <input
+                  type="text"
+                  className="form-control"
+                  name="nacionalidad"
+                  placeholder="Nacionalidad"
+                  value={empleadoEditando.nacionalidad || ''}
+                  onChange={handleChangeEdit}
+                />
+              </div>
+            </div>
 
-  <div className="row mt-3">
-    <div className="col-md-4">
-      <input
-        type="text"
-        className="form-control"
-        name="estadoCivil"
-        placeholder="Estado Civil"
-        value={empleadoEditando.estadoCivil || ''}
-        onChange={handleChangeEdit}
-      />
-    </div>
-    <div className="col-md-4">
-      <input
-        type="text"
-        className="form-control"
-        name="genero"
-        placeholder="Género"
-        value={empleadoEditando.genero || ''}
-        onChange={handleChangeEdit}
-      />
-    </div>
-    <div className="col-md-4">
-      <input
-        type="text"
-        className="form-control"
-        name="obraSocial"
-        placeholder="Obra Social"
-        value={empleadoEditando.obraSocial || ''}
-        onChange={handleChangeEdit}
-      />
-    </div>
-  </div>
+            <div className="row mt-3">
+              <div className="col-md-4">
+                <input
+                  type="text"
+                  className="form-control"
+                  name="estadoCivil"
+                  placeholder="Estado Civil"
+                  value={empleadoEditando.estadoCivil || ''}
+                  onChange={handleChangeEdit}
+                />
+              </div>
+              <div className="col-md-4">
+                <input
+                  type="text"
+                  className="form-control"
+                  name="genero"
+                  placeholder="Género"
+                  value={empleadoEditando.genero || ''}
+                  onChange={handleChangeEdit}
+                />
+              </div>
+              <div className="col-md-4">
+                <input
+                  type="text"
+                  className="form-control"
+                  name="obraSocial"
+                  placeholder="Obra Social"
+                  value={empleadoEditando.obraSocial || ''}
+                  onChange={handleChangeEdit}
+                />
+              </div>
+            </div>
 
-  <div className="row mt-3">
-    <div className="col-md-4">
-      <input
-        type="text"
-        className="form-control"
-        name="cbu"
-        placeholder="CBU"
-        value={empleadoEditando.cbu || ''}
-        onChange={handleChangeEdit}
-      />
-    </div>
-    <div className="col-md-4">
-      <input
-        type="text"
-        className="form-control"
-        name="banco"
-        placeholder="Banco"
-        value={empleadoEditando.banco || ''}
-        onChange={handleChangeEdit}
-      />
-    </div>
-    <div className="col-md-4">
-      <input
-        type="text"
-        className="form-control"
-        name="tipoCuentaBancaria"
-        placeholder="Tipo de Cuenta Bancaria"
-        value={empleadoEditando.tipoCuentaBancaria || ''}
-        onChange={handleChangeEdit}
-      />
-    </div>
-  </div>
+            <div className="row mt-3">
+              <div className="col-md-4">
+                <input
+                  type="text"
+                  className="form-control"
+                  name="cbu"
+                  placeholder="CBU"
+                  value={empleadoEditando.cbu || ''}
+                  onChange={handleChangeEdit}
+                />
+              </div>
+              <div className="col-md-4">
+                <input
+                  type="text"
+                  className="form-control"
+                  name="banco"
+                  placeholder="Banco"
+                  value={empleadoEditando.banco || ''}
+                  onChange={handleChangeEdit}
+                />
+              </div>
+              <div className="col-md-4">
+                <input
+                  type="text"
+                  className="form-control"
+                  name="tipoCuentaBancaria"
+                  placeholder="Tipo de Cuenta Bancaria"
+                  value={empleadoEditando.tipoCuentaBancaria || ''}
+                  onChange={handleChangeEdit}
+                />
+              </div>
+            </div>
 
-  <div className="row mt-3">
-    <div className="col-md-4">
-      <input
-        type="text"
-        className="form-control"
-        name="tipoContrato"
-        placeholder="Tipo de Contrato"
-        value={empleadoEditando.tipoContrato || ''}
-        onChange={handleChangeEdit}
-      />
-    </div>
-    <div className="col-md-4">
-      <input
-        type="text"
-        className="form-control"
-        name="cuil"
-        placeholder="CUIL"
-        value={empleadoEditando.cuil || ''}
-        onChange={handleChangeEdit}
-      />
-    </div>
-  </div>
+            <div className="row mt-3">
+              <div className="col-md-4">
+                <input
+                  type="text"
+                  className="form-control"
+                  name="tipoContrato"
+                  placeholder="Tipo de Contrato"
+                  value={empleadoEditando.tipoContrato || ''}
+                  onChange={handleChangeEdit}
+                />
+              </div>
+              <div className="col-md-4">
+                <input
+                  type="text"
+                  className="form-control"
+                  name="cuil"
+                  placeholder="CUIL"
+                  value={empleadoEditando.cuil || ''}
+                  onChange={handleChangeEdit}
+                />
+              </div>
+            </div>
 
-  <button className="btn btn-success mt-3" type="submit">
-    Guardar cambios
-  </button>
-</form>
+            <button className="btn btn-success mt-3" type="submit">
+              Guardar cambios
+            </button>
+          </form>
         </div>
       )}
 
@@ -388,7 +386,7 @@ export default function EmpleadoLista() {
               <td>{empleado.nombre}</td>
               <td>{empleado.cuil}</td>
               <td>{empleado.fechaInicio}</td>
-              <td>{empleado.departamento}</td>     
+              <td>{empleado.departamento}</td>
               <td>
                 <button
                   className="btn btn-primary"

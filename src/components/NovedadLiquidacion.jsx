@@ -92,11 +92,11 @@ const NovedadesLiquidacion = () => {
 
     const filteredNovedadesConDetalles = filteredNovedades.map(novedad => {
         const empleado = empleados.find(emp => emp.id === novedad.idEmpleado);
-        const concepto = conceptos.find(concepto => concepto.id === novedad.idConcepto); // Asegúrate que el `idConcepto` es el que estás buscando
+        const concepto = conceptos.find(concepto => concepto.id === novedad.idConcepto);
         return {
             ...novedad,
             nombreEmpleado: empleado ? `${empleado.nombre} ${empleado.apellido}` : 'Sin empleado',
-            nombreConcepto: concepto ? concepto.nombre : 'Sin concepto' // Esto debería funcionar si los conceptos se están mapeando correctamente
+            nombreConcepto: concepto ? concepto.nombre : 'Sin concepto'
         };
     });
 

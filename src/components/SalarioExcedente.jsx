@@ -18,7 +18,7 @@ const SalarioExcedente = () => {
     const [empleados, setEmpleados] = useState([]);
     const [conceptos, setConceptos] = useState([]);
 
-    const apiUrl = 'http://localhost:8080/api/salarios-excedentes';  
+    const apiUrl = 'http://localhost:8080/api/salarios-excedentes';
     const empleadosApiUrl = 'http://localhost:8080/api/empleados';
     const conceptosApiUrl = 'http://localhost:8080/api/conceptos-salariales';
 
@@ -103,7 +103,7 @@ const SalarioExcedente = () => {
     const filteredSalariosConNombre = filteredSalariosExcedentes.map(salario => {
         const empleado = empleados.find(emp => emp.id === salario.idEmpleado);
         const concepto = conceptos.find(con => con.id === salario.idConcepto);
-        
+
         return {
             ...salario,
             nombreEmpleado: empleado ? `${empleado.nombre} ${empleado.apellido}` : 'Empleado no encontrado',

@@ -31,16 +31,16 @@ const LiquidacionRetenciones = () => {
   };
 
   return (
-<div>
-  <button 
-    onClick={procesarRetenciones} 
-    className="btn btn-primary mt-4" // Agregando clase de Bootstrap
-    disabled={cargando}
-  >
-    {cargando ? 'Procesando...' : 'Procesar '}
-  </button>
-  {mensaje && <p>{mensaje}</p>}
-</div>
+    <div>
+      <button
+        onClick={procesarRetenciones}
+        className="btn btn-primary mt-4" // Agregando clase de Bootstrap
+        disabled={cargando}
+      >
+        {cargando ? 'Procesando...' : 'Procesar '}
+      </button>
+      {mensaje && <p>{mensaje}</p>}
+    </div>
   );
 };
 

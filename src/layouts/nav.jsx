@@ -31,7 +31,7 @@ export default function Nav() {
                 <Link className="dropdown-item" to="/novedadLiquidacion">Novedad Liquidacion</Link>
                 <Link className="dropdown-item" to="/haberes">Haberes</Link>
                 <Link className="dropdown-item" to="/retenciones">Retenciones</Link>
-                  <Link className="dropdown-item" to="/cargasSociales"> Cargas Sociales</Link>
+                <Link className="dropdown-item" to="/cargasSociales"> Cargas Sociales</Link>
                 <Link className="dropdown-item" to="/asientoContable"> Asiento Contable</Link>
               </ul>
             </li>
@@ -42,7 +42,6 @@ export default function Nav() {
                 <Link className="dropdown-item" to="/liquidacionResultado">Resultado</Link>
                 <Link className="dropdown-item" to="/neto">Neto</Link>
                 <Link className="dropdown-item" to="/empleadoAgrupadoList"> Neto Banco</Link>
-                <Link className="dropdown-item" to="/liquidacionResultado">Resultado</Link>
               </ul>
             </li>
 
@@ -74,6 +73,6 @@ export default function Nav() {
           </form>
         </div>
       </div>
-    </nav>   
+    </nav>
   );
 }

@@ -12,7 +12,7 @@ const CargasSociales = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:8080/procesar-cargas-sociales?mes=${mes}&anio=${anio}`, 
+        `http://localhost:8080/procesar-cargas-sociales?mes=${mes}&anio=${anio}`,
         {
           method: 'GET',
           headers: {
@@ -38,7 +38,7 @@ const CargasSociales = () => {
   return (
     <div className="container mt-4">
       <h1 className="text-center mb-4">Procesar Cargas Sociales</h1>
-      
+
       <form
         onSubmit={(e) => {
           e.preventDefault();

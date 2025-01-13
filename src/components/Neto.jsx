@@ -103,7 +103,7 @@ const EmpleadoList = () => {
                 <td className="col-1 text-right">{formatNumber(empleado.montoConcepto491)}</td>
               </tr>
             ))}
-            {/* Fila para el total neto */}
+
             <tr>
               <td colSpan="3" className="text-end font-weight-bold">Total Neto</td>
               <td className="text-right font-weight-bold">{formatNumber(totalNeto)}</td>

@@ -36,6 +36,11 @@ const Puesto = () => {
             ));
         setNuevoPuesto({ puesto: '', descripcion: '' });
         setEditingPuesto(null);
+           } else {
+               setError('Error al actualizar el puesto.');
+           }
+          })
+          .catch(err => setError('Error al actualizar el puesto.'));
     } else {
       axios.post(apiUrl, nuevoPuesto)
         .then(response => {

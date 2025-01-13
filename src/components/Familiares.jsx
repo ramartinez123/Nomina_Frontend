@@ -108,7 +108,7 @@ const Familiares = () => {
                         <input
                             type="text"
                             className="form-control form-control-sm"
-                            value={nuevoFamiliar.idEmpleado }
+                            value={nuevoFamiliar.idEmpleado}
                             onChange={(e) => setNuevoFamiliar({ ...nuevoFamiliar, idEmpleado: e.target.value })}
                             placeholder="Empl"
                             required
@@ -176,7 +176,7 @@ const Familiares = () => {
                             checked={nuevoFamiliar.tieneDiscapacidad}
                             onChange={(e) => setNuevoFamiliar({ ...nuevoFamiliar, tieneDiscapacidad: e.target.checked })}
                             className="form-check-input"
-                        />                       
+                        />
                     </div>
 
                     <div className="col-md-2">
@@ -220,7 +220,7 @@ const Familiares = () => {
                                 <td>{familiar.id}</td>
                                 <td>{familiar.idParentesco}</td>
                                 <td>{familiar.idEmpleado}</td>
-                                <td>{familiar.apellidoEm    }</td>
+                                <td>{familiar.apellidoEm}</td>
                                 <td>{familiar.apellidoNombre}</td>
                                 <td>{familiar.fechaNacimiento}</td>
                                 <td>{familiar.fechaInicio}</td>

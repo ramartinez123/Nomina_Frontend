@@ -18,9 +18,9 @@ const AsientosContables = () => {
       })
       .catch(err => {
         setError('Hubo un error al cargar los datos');
-        setLoading(false); // Deja de mostrar el estado de carga
+        setLoading(false);
       });
-  }, [mes, anio]); // Dependiendo de mes y anio, se vuelve a ejecutar
+  }, [mes, anio]);
 
   // Mostrar un mensaje de carga mientras se obtienen los datos
   if (loading) return <div>Loading...</div>;
@@ -54,7 +54,7 @@ const AsientosContables = () => {
   return (
     <div className="container mt-4">
       <h2 className="text-center mb-4">Asientos Contables</h2>
-      
+
       {/* Selección de mes y año */}
       <div className="row mb-4">
         <div className="col-md-2">

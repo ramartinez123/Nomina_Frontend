@@ -163,42 +163,42 @@ const ValoresCategoria = () => {
                 onChange={(e) => setSearchTerm(e.target.value)}
             />
 
-<h2>Lista de Históricos</h2>
-        {filteredHistoricosConNombre.length > 0 ? (
-            <table className="table table-striped table-sm">
-                <thead className="table-dark">
-                    <tr>
-                        <th>ID</th>
-                        <th>Categoría</th>
-                        <th>Fecha Inicio</th>
-                        <th>Fecha Baja</th>
-                        <th className='text-center'>Salario</th>
-                        <th className='text-center'>Almuerzo</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {filteredHistoricosConNombre.map(historico => (
-                        <tr key={historico.id}>
-                            <td>{historico.id}</td>
-                            <td>{historico.nombreCategoria}</td>
-                            <td>{historico.fechaInicio}</td>
-                            <td>{historico.fechaBaja}</td>
-                            <td className='text-right'>{formatNumber(historico.salario)}</td>
-                            <td className='text-right'>{formatNumber(historico.almuerzo)}</td>
-                            <td style={{ textAlign: "center" }}>
-                                <button
-                                    className="btn btn-warning btn-sm me-2 "
-                                    onClick={() => handleEdit(historico)}
-                                >
-                                    Editar
-                                </button>
-                            </td>
+            <h2>Lista de Históricos</h2>
+            {filteredHistoricosConNombre.length > 0 ? (
+                <table className="table table-striped table-sm">
+                    <thead className="table-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>Categoría</th>
+                            <th>Fecha Inicio</th>
+                            <th>Fecha Baja</th>
+                            <th className='text-center'>Salario</th>
+                            <th className='text-center'>Almuerzo</th>
+                            <th>Acciones</th>
                         </tr>
-                    ))}
-                </tbody>
-            </table>
-        ) : (
+                    </thead>
+                    <tbody>
+                        {filteredHistoricosConNombre.map(historico => (
+                            <tr key={historico.id}>
+                                <td>{historico.id}</td>
+                                <td>{historico.nombreCategoria}</td>
+                                <td>{historico.fechaInicio}</td>
+                                <td>{historico.fechaBaja}</td>
+                                <td className='text-right'>{formatNumber(historico.salario)}</td>
+                                <td className='text-right'>{formatNumber(historico.almuerzo)}</td>
+                                <td style={{ textAlign: "center" }}>
+                                    <button
+                                        className="btn btn-warning btn-sm me-2 "
+                                        onClick={() => handleEdit(historico)}
+                                    >
+                                        Editar
+                                    </button>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            ) : (
                 <p>No hay históricos disponibles.</p>
             )}
         </div>

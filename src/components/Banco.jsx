@@ -3,11 +3,11 @@ import axios from 'axios';
 import './Banco.css';
 
 const Banco = () => {
-  const [bancos, setBancos] = useState([]); // Lista de bancos
-  const [nuevoBanco, setNuevoBanco] = useState({ nombre: '', descripcion: '' }); // Datos del nuevo banco
-  const [error, setError] = useState(null); // Mensaje de error
-  const [editingBanco, setEditingBanco] = useState(null); // Banco en edición
-  const [searchTerm, setSearchTerm] = useState(''); // Término de búsqueda
+  const [bancos, setBancos] = useState([]);
+  const [nuevoBanco, setNuevoBanco] = useState({ nombre: '', descripcion: '' });
+  const [error, setError] = useState(null);
+  const [editingBanco, setEditingBanco] = useState(null);
+  const [searchTerm, setSearchTerm] = useState('');
 
   const apiUrl = 'http://localhost:8080/api/bancos';
 
@@ -16,7 +16,7 @@ const Banco = () => {
     axios.get(apiUrl)
       .then(response => {
         if (response.status === 204) {
-          setBancos([]); // No hay contenido  
+          setBancos([]);
         } else {
           setBancos(response.data);
         }
@@ -37,24 +37,10 @@ const Banco = () => {
             setBancos(bancos.map(banco =>
               banco.idBanco === editingBanco.idBanco ? { ...banco, ...nuevoBanco } : banco
             ));
-            
+
             setNuevoBanco({ nombre: '', descripcion: '' });
-            setEditingBanco(null); // Limpiar estado de edición
+            setEditingBanco(null); 
           } else {
-            // Actualizar la lista de bancos
-            /*axios.get(apiUrl)
-              .then(res => {
-                if (res.status === 200) {
-                  setBancos(res.data);
-                } else {
-                  setError('Error al obtener la lista actualizada de bancos.');
-                }
-              })
-              .catch(err => setError('Error al obtener la lista de bancos.'));
-            
-            setNuevoBanco({ nombre: '', descripcion: '' });
-            setEditingBanco(null); // Limpiar estado de edición
-          } else {*/
             setError('Error al actualizar el banco.');
           }
         })
@@ -153,15 +139,9 @@ const Banco = () => {
                 <td>{banco.nombre}</td>
                 <td>{banco.descripcion}</td>
                 <td>
-                <button className="btn btn-warning btn-sm me-2" onClick={() => handleEdit(banco)}>
-                   <i className="bi bi-pencil"></i> Editar
-                </button>
-                 {/* <button
-                    className="btn btn-warning btn-sm me-2"
-                    onClick={() => handleEdit(banco)}
-                  >
-                    Editar
-                  </button>*/}
+                  <button className="btn btn-warning btn-sm me-2" onClick={() => handleEdit(banco)}>
+                    <i className="bi bi-pencil"></i> Editar
+                  </button>
                 </td>
               </tr>
             ))}

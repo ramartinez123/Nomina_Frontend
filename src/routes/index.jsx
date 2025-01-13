@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; 
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from '../layouts/Layout';
 import Empleado from '../components/Empleado';
 import Banco from '../components/Banco';
@@ -23,25 +23,25 @@ import SalarioExcedente from '../components/SalarioExcedente';
 import Familiares from '../components/Familiares';
 
 export const routes = [
-    { path: '/', element: <h1>Contacto</h1> },
-    { path: '/empleadoAlta', element: <Empleado /> },
-    { path: '/empleadoLista', element: <EmpleadoLista /> },
-    { path: '/liquidacionResultado', element: <LiquidacionResultado /> },
-    { path: '/banco', element: <Banco /> },
-    { path: '/neto', element: <Neto /> },
-    { path: '/categoria', element: <Categoria /> },
-    { path: '/empleadoAgrupadoList', element: <EmpleadoAgrupadoList /> },
-    { path: '/asientoContable', element: <AsientoContable /> },
-    { path: '/convenio', element: <Convenio /> },
-    { path: '/departamento', element: <Departamento /> },
-    { path: '/obraSocial', element: <ObraSocial /> },
-    { path: '/puesto', element: <Puesto /> },
-    { path: '/haberes', element: <LiquidacionHaberes /> },
-    { path: '/retenciones', element: <LiquidacionRetenciones /> },
-    { path: '/cargasSociales', element: <CargasSociales /> },
-    { path: '/valoresCategoria', element: <ValoresCategoria /> },
-    { path: '/novedadLiquidacion', element: <NovedadLiquidacion /> },
-    { path: '/conceptosSalariales', element: <ConceptosSalariales /> },
-    { path: '/salarioExcedente', element: <SalarioExcedente /> },
-    { path: '/familiares', element: <Familiares /> }
-  ];
+  { path: '/', element: <h1>Contacto</h1> },
+  { path: '/empleadoAlta', element: <Empleado /> },
+  { path: '/empleadoLista', element: <EmpleadoLista /> },
+  { path: '/liquidacionResultado', element: <LiquidacionResultado /> },
+  { path: '/banco', element: <Banco /> },
+  { path: '/neto', element: <Neto /> },
+  { path: '/categoria', element: <Categoria /> },
+  { path: '/empleadoAgrupadoList', element: <EmpleadoAgrupadoList /> },
+  { path: '/asientoContable', element: <AsientoContable /> },
+  { path: '/convenio', element: <Convenio /> },
+  { path: '/departamento', element: <Departamento /> },
+  { path: '/obraSocial', element: <ObraSocial /> },
+  { path: '/puesto', element: <Puesto /> },
+  { path: '/haberes', element: <LiquidacionHaberes /> },
+  { path: '/retenciones', element: <LiquidacionRetenciones /> },
+  { path: '/cargasSociales', element: <CargasSociales /> },
+  { path: '/valoresCategoria', element: <ValoresCategoria /> },
+  { path: '/novedadLiquidacion', element: <NovedadLiquidacion /> },
+  { path: '/conceptosSalariales', element: <ConceptosSalariales /> },
+  { path: '/salarioExcedente', element: <SalarioExcedente /> },
+  { path: '/familiares', element: <Familiares /> }
+];
