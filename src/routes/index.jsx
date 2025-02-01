@@ -23,7 +23,6 @@ import SalarioExcedente from '../components/SalarioExcedente';
 import Familiares from '../components/Familiares';
 
 export const routes = [
-  { path: '/', element: <h1>Contacto</h1> },
   { path: '/empleadoAlta', element: <Empleado /> },
   { path: '/empleadoLista', element: <EmpleadoLista /> },
   { path: '/liquidacionResultado', element: <LiquidacionResultado /> },

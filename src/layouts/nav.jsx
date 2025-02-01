@@ -37,10 +37,10 @@ export default function Nav() {
             </li>
 
             <li className="nav-item dropdown">
-              <Link className="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown"> Listados</Link>
+              <Link className="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown"> Reportes</Link>
               <ul className="dropdown-menu">
                 <Link className="dropdown-item" to="/liquidacionResultado">Resultado</Link>
-                <Link className="dropdown-item" to="/neto">Neto</Link>
+                <Link className="dropdown-item" to="/neto">Neto</Link>    
                 <Link className="dropdown-item" to="/empleadoAgrupadoList"> Neto Banco</Link>
               </ul>
             </li>
